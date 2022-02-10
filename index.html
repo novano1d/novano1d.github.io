@@ -7,113 +7,75 @@
     </head>
     <body>
         <template id="greetings">       
- _  ___      ___   ___  
-/ |/ _ \ /\ / _ \ / _ \ 
-| | | | |/\| (_) | (_) |
-| | |_| |   \__, |\__, |
-|_|\___/      /_/   /_/
-           </template>
-           <template id="1">
-STATUS: 0200 HOURS 1/22/2072
-Contact was made with HQ only a few days ago.
-However HQ has been affected by the recent viral outbreak on Earth.
-As always... HQ is on my mind. In my thoughts. Always hoping for the best.
-Waiting... always waiting. For my next talk with HQ. It's not often that the coms are working perfectly.
-
-Sometimes I gaze from our little base on the moon back down on that planet we called home for so long.
-I think about how small it looks from here. How small it really is in the scheme of things.
-Yet it's the most significant insignificant thing in the whole of reality.
-- M
-           </template>
-           <template id="0">
-CORRUPTED DATA
+     _   __                             _     __
+    / | / /___ _   ______ _____  ____  (_)___/ /
+   /  |/ / __ \ | / / __ `/ __ \/ __ \/ / __  / 
+  / /|  / /_/ / |/ / /_/ / / / / /_/ / / /_/ /  
+ /_/ |_/\____/|___/\__,_/_/ /_/\____/_/\__,_/                                                   
            </template>
         <script>
-            var logs = "Current available logs: 0, 1"
-            function sleep(milliseconds) {
-                const date = Date.now();
-                let currentDate = null;
-                do {
-                currentDate = Date.now();
-                } while (currentDate - date < milliseconds);
-            }
-            function loginFunction(name, password, callback)
-            {
-                if (name == "Britney" && password == "Medina")
-                {
-                    callback("success");
-                }
-                else
-                {
-                    callback(false);
-                }
-            }
             $('body').terminal({
                 //Command list here
                 help: function()
                 {
-                    this.echo("\t[[;yellow;]pingHQ] - Pings HQ and returns the response time in miliseconds.\n" +
-                    "\t[[;yellow;]getlog] - getlog followed by a space and then the log number will return the text in the log.\n" +
-                    "\t[[;yellow;]loglist] - Displays the current log numbers.\n" +
+                    this.echo("\t[[;yellow;]name] - Returns the name of the owner of this site.\n" +
+                    "\t[[;yellow;]location] - Returns the location of the owner of this site.\n" +
+                    "\t[[;yellow;]education] - Displays my educational background.\n" +
+                    "\t[[;yellow;]work] - Displays my previous and/or current employers.\n" +
+                    "\t[[;yellow;]contact] - Displays my contact information.\n" +
+                    "\t[[;yellow;]social] - Displays my social media accounts.\n" +
                     "\t[[;yellow;]time] - Displays the current date.\n" +
-                    "\t[[;yellow;]editlog0data] - Follow by a single word. Log 0 seems to be the only editable file on this system. Maybe the data can be uncorrupted if the right command is entered?\n" +
-                    "\t[[;yellow;]status] - Displays the current system status.\n" + 
                     "\t[[;yellow;]motd] - Displays the message of the day."
                     );
                 },
-                
-                pingHQ: function()
+
+                name: function()
                 {
-                    this.echo("Ping timeout. No ping back from HQ.")
-                    sleep(3000);
+                    this.echo("[[;green;]Hello! My name is Matthew Moore. I'm the owner of this website :)]");
                 },
 
-                getlog: function(num)
+                location: function()
                 {
-                    try
-                    {
-                        this.echo(document.getElementById(num).innerHTML);
-                    }
-                    catch (console)
-                    {
-                        this.echo("Invalid log number.\n\t" + logs)
-                    }
+                    this.echo("[[;green;]I currently live in Aurora Ohio.]");
                 },
 
-                loglist: function()
+                education: function()
                 {
-                    this.echo(logs);
+                    this.echo("[[;red;]Kent State University (2021 - Present)] - I am currently a sophomore working towards my BS in Computer Science. I expect to graduate in 2024.");
+                    this.echo("[[;red;]Aurora High School (2017 - 2021)] - I graduated summa cum laude and with honors.");
+                },
+
+                work: function()
+                {
+                    this.echo("[[;red;]Keybank (Fall 2021 - Present)] - I am currently an intern at Keybank working with the email management and mobile development team.");
+                    this.echo("[[;red;]Aurora High School (Summer 2021)] - I worked full time with the school tech team to help prepare the distribution of chromebooks for the upcoming school year.");
+                },
+
+                contact: function()
+                {
+                    this.echo("[[;green;]Contact me anytime at matthewmoore7314@gmail.com ... Hope to hear from you soon!]");
+                },
+
+                social: function()
+                {
+                    this.echo("[[;green;]Instagram: ]@matthewmoore7314\n[[;green;]LinkedIn: ]https://www.linkedin.com/in/matthewmoore7314/");
                 },
 
                 time: function()
                 {
                     const d = new Date();
                     var hours;
-                    this.echo((d.getMonth() + 1) + "/" + d.getDate() + "/" + (d.getFullYear() + 50));
-                },
-
-                editlog0data: function(param)
-                {
-                    if (param != "dork")
-                        document.getElementById("0").innerHTML = param;
-                    else
-                        document.getElementById("0").innerHTML = "A little easter egg goober.";
-                },
-
-                status: function()
-                {
-                    this.echo("MAINFRAME: [[;green;]ONLINE]\nCOMS ARRAY: [[;green;]ONLINE]\nARRAY ALIGNMENT: [[;yellow;]FAULTY]\nHQ SYSTEMS: [[;red;]OFFLINE]\nHABITAT: [[;green;]OKAY]");
+                    this.echo((d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear());
                 },
 
                 motd: function()
                 {
-                    this.echo("I hope you feel better soon [[;red;]dork]\nSystem notice: \"dork\" seems to modify corrupted data in log 0.");
+                    this.echo("I hope you're having an absolutely wonderful day! :)");
                 }
 
             }, {
                 //Login and greeting
-                login: loginFunction,
-                greetings: "[[;yellow;]SUCCESSFUL AUTHENTICATION]\nType \"help\" for a list of commands.\n" + greetings.innerHTML
+                greetings: "[[;yellow;]Welcome!]\nType \"help\" for a list of commands.\n" + greetings.innerHTML
                 });
          </script>
     </body>

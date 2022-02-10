@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
+    </head>
+    <body>
+        <template id="greetings">       
+ _  ___      ___   ___  
+/ |/ _ \ /\ / _ \ / _ \ 
+| | | | |/\| (_) | (_) |
+| | |_| |   \__, |\__, |
+|_|\___/      /_/   /_/
+           </template>
+           <template id="1">
+STATUS: 0200 HOURS 1/22/2072
+Contact was made with HQ only a few days ago.
+However HQ has been affected by the recent viral outbreak on Earth.
+As always... HQ is on my mind. In my thoughts. Always hoping for the best.
+Waiting... always waiting. For my next talk with HQ. It's not often that the coms are working perfectly.
+
+Sometimes I gaze from our little base on the moon back down on that planet we called home for so long.
+I think about how small it looks from here. How small it really is in the scheme of things.
+Yet it's the most significant insignificant thing in the whole of reality.
+- M
+           </template>
+           <template id="0">
+CORRUPTED DATA
+           </template>
+        <script>
+            var logs = "Current available logs: 0, 1"
+            function sleep(milliseconds) {
+                const date = Date.now();
+                let currentDate = null;
+                do {
+                currentDate = Date.now();
+                } while (currentDate - date < milliseconds);
+            }
+            function loginFunction(name, password, callback)
+            {
+                if (name == "Britney" && password == "Medina")
+                {
+                    callback("success");
+                }
+                else
+                {
+                    callback(false);
+                }
+            }
+            $('body').terminal({
+                //Command list here
+                help: function()
+                {
+                    this.echo("\t[[;yellow;]pingHQ] - Pings HQ and returns the response time in miliseconds.\n" +
+                    "\t[[;yellow;]getlog] - getlog followed by a space and then the log number will return the text in the log.\n" +
+                    "\t[[;yellow;]loglist] - Displays the current log numbers.\n" +
+                    "\t[[;yellow;]time] - Displays the current date.\n" +
+                    "\t[[;yellow;]editlog0data] - Follow by a single word. Log 0 seems to be the only editable file on this system. Maybe the data can be uncorrupted if the right command is entered?\n" +
+                    "\t[[;yellow;]status] - Displays the current system status.\n" + 
+                    "\t[[;yellow;]motd] - Displays the message of the day."
+                    );
+                },
+                
+                pingHQ: function()
+                {
+                    this.echo("Ping timeout. No ping back from HQ.")
+                    sleep(3000);
+                },
+
+                getlog: function(num)
+                {
+                    try
+                    {
+                        this.echo(document.getElementById(num).innerHTML);
+                    }
+                    catch (console)
+                    {
+                        this.echo("Invalid log number.\n\t" + logs)
+                    }
+                },
+
+                loglist: function()
+                {
+                    this.echo(logs);
+                },
+
+                time: function()
+                {
+                    const d = new Date();
+                    var hours;
+                    this.echo((d.getMonth() + 1) + "/" + d.getDate() + "/" + (d.getFullYear() + 50));
+                },
+
+                editlog0data: function(param)
+                {
+                    if (param != "dork")
+                        document.getElementById("0").innerHTML = param;
+                    else
+                        document.getElementById("0").innerHTML = "A little easter egg goober.";
+                },
+
+                status: function()
+                {
+                    this.echo("MAINFRAME: [[;green;]ONLINE]\nCOMS ARRAY: [[;green;]ONLINE]\nARRAY ALIGNMENT: [[;yellow;]FAULTY]\nHQ SYSTEMS: [[;red;]OFFLINE]\nHABITAT: [[;green;]OKAY]");
+                },
+
+                motd: function()
+                {
+                    this.echo("I hope you feel better soon [[;red;]dork]\nSystem notice: \"dork\" seems to modify corrupted data in log 0.");
+                }
+
+            }, {
+                //Login and greeting
+                login: loginFunction,
+                greetings: "[[;yellow;]SUCCESSFUL AUTHENTICATION]\nType \"help\" for a list of commands.\n" + greetings.innerHTML
+                });
+         </script>
+    </body>
+</html>
