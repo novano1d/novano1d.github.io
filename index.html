@@ -1,82 +1,50 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
-        <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/>
-    </head>
-    <body>
-        <template id="greetings">       
-     _   __                             _     __
-    / | / /___ _   ______ _____  ____  (_)___/ /
-   /  |/ / __ \ | / / __ `/ __ \/ __ \/ / __  / 
-  / /|  / /_/ / |/ / /_/ / / / / /_/ / / /_/ /  
- /_/ |_/\____/|___/\__,_/_/ /_/\____/_/\__,_/                                                   
-           </template>
-        <script>
-            $('body').terminal({
-                //Command list here
-                help: function()
-                {
-                    this.echo("\t[[;yellow;]name] - Returns the name of the owner of this site.\n" +
-                    "\t[[;yellow;]location] - Returns the location of the owner of this site.\n" +
-                    "\t[[;yellow;]education] - Displays my educational background.\n" +
-                    "\t[[;yellow;]work] - Displays my previous and/or current employers.\n" +
-                    "\t[[;yellow;]contact] - Displays my contact information.\n" +
-                    "\t[[;yellow;]social] - Displays my social media accounts.\n" +
-                    "\t[[;yellow;]time] - Displays the current date.\n" +
-                    "\t[[;yellow;]motd] - Displays the message of the day."
-                    );
-                },
+<html lang="en">
 
-                name: function()
-                {
-                    this.echo("[[;green;]Hello! My name is Matthew Moore. I'm the owner of this website :)]");
-                },
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>testing</title>
+    <link rel="icon" type="image/png" sizes="2000x2000" href="assets/img/trans-final.png">
+    <link rel="icon" type="image/png" sizes="2000x2000" href="assets/img/trans-final.png">
+    <link rel="icon" type="image/png" sizes="2000x2000" href="assets/img/trans-final.png">
+    <link rel="icon" type="image/png" sizes="2000x2000" href="assets/img/trans-final.png">
+    <link rel="icon" type="image/png" sizes="2000x2000" href="assets/img/trans-final.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Highlight-Phone.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
 
-                location: function()
-                {
-                    this.echo("[[;green;]I currently live in Aurora Ohio.]");
-                },
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg navigation-clean">
+        <div class="container"><a class="navbar-brand" href="#"><img src="assets/img/trans-final.png" width="50" height="50"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="resume.html" target="_blank">Resume</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://impossiblywonderful.blogspot.com/" target="_blank" data-bs-toggle="e">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.youtube.com/channel/UC6PCx2baWCgzAJJJ9MpJaIQ" target="_blank">YouTube</a></li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Novanoid</h1>
+                <p>Hello, my name is Matthew. I am currently a sophomore pursuing a BS in Computer Science at Kent State University.&nbsp;<br>I've been working with computers as long as I can remember... Coding random things here and there my whole life.<br>I've also been interested in hobby electronics and nuclear physics. Throughout the years worked on numerous projects. Check out my YouTube and Instagram if you'd like to see some of them!<br>In my free time I enjoy playing games and working on random projects that happen to catch my interest.</p><img src="assets/img/IMG_0454(1).jpg" style="width: 300px;">
+            </div>
+            <div class="col-md-6"><iframe class="d-xl-flex" src="https://www.instagram.com/p/BUXZskejRku/embed" allowtransparency="true" frameborder="0" scrolling="no" width="350" height="550" style="padding: 0px;padding-left: 0;margin: 0;"></iframe></div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
 
-                education: function()
-                {
-                    this.echo("[[;red;]Kent State University (2021 - Present)] - I am currently a sophomore working towards my BS in Computer Science. I expect to graduate in 2024.");
-                    this.echo("[[;red;]Aurora High School (2017 - 2021)] - I graduated summa cum laude and with honors.");
-                },
-
-                work: function()
-                {
-                    this.echo("[[;red;]KeyBank (Fall 2021 - Present)] - I am currently an intern at Keybank working with the email management and mobile development team.");
-                    this.echo("[[;red;]Aurora High School (Summer 2021)] - I worked full time with the school tech team to help prepare the distribution of chromebooks for the upcoming school year.");
-                },
-
-                contact: function()
-                {
-                    this.echo("[[;green;]Contact me anytime at matthewmoore7314@gmail.com ... Hope to hear from you soon!]");
-                },
-
-                social: function()
-                {
-                    this.echo("[[;green;]Instagram: ]@matthewmoore7314\n[[;green;]LinkedIn: ]https://www.linkedin.com/in/matthewmoore7314/");
-                },
-
-                time: function()
-                {
-                    const d = new Date();
-                    var hours;
-                    this.echo((d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear());
-                },
-
-                motd: function()
-                {
-                    this.echo("I hope you're having an absolutely wonderful day! :)");
-                }
-
-            }, {
-                //Login and greeting
-                greetings: "[[;yellow;]Welcome!]\nType \"help\" for a list of commands.\n" + greetings.innerHTML
-                });
-         </script>
-    </body>
 </html>
