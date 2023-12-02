@@ -7,25 +7,26 @@
     </head>
     <body>
         <template id="greetings">       
-     _   __                             _     __
-    / | / /___ _   ______ _____  ____  (_)___/ /
-   /  |/ / __ \ | / / __ `/ __ \/ __ \/ / __  / 
-  / /|  / /_/ / |/ / /_/ / / / / /_/ / / /_/ /  
- /_/ |_/\____/|___/\__,_/_/ /_/\____/_/\__,_/                                                   
+             __  __       _   _   _                     __  __                      
+            |  \/  |     | | | | | |                   |  \/  |                     
+            | \  / | __ _| |_| |_| |__   _____      __ | \  / | ___   ___  _ __ ___ 
+            | |\/| |/ _` | __| __| '_ \ / _ \ \ /\ / / | |\/| |/ _ \ / _ \| '__/ _ \
+            | |  | | (_| | |_| |_| | | |  __/\ V  V /  | |  | | (_) | (_) | | |  __/
+            |_|  |_|\__,_|\__|\__|_| |_|\___| \_/\_/   |_|  |_|\___/ \___/|_|  \___|
+                                                                                                                                            
            </template>
         <script>
             $('body').terminal({
                 //Command list here
                 help: function()
                 {
-                    this.echo("\t[[;yellow;]name] - Returns the name of the owner of this site.\n" +
-                    "\t[[;yellow;]location] - Returns the location of the owner of this site.\n" +
+                    this.echo("\t[[;yellow;]contact] - Returns contact info.\n" +
+                    "\t[[;yellow;]location] - Returns my location.\n" +
                     "\t[[;yellow;]education] - Displays my educational background.\n" +
                     "\t[[;yellow;]work] - Displays my previous and/or current employers.\n" +
                     "\t[[;yellow;]contact] - Displays my contact information.\n" +
                     "\t[[;yellow;]social] - Displays my social media accounts.\n" +
-                    "\t[[;yellow;]time] - Displays the current date.\n" +
-                    "\t[[;yellow;]motd] - Displays the message of the day."
+                    "\t[[;yellow;]time] - Displays the current date.\n"
                     );
                 },
 
@@ -36,18 +37,18 @@
 
                 location: function()
                 {
-                    this.echo("[[;green;]I currently live in Aurora Ohio.]");
+                    this.echo("[[;green;]I currently live in Kent Ohio.]");
                 },
 
                 education: function()
                 {
-                    this.echo("[[;red;]Kent State University (2021 - Present)] - I am currently a sophomore working towards my BS in Computer Science. I expect to graduate in 2024.");
-                    this.echo("[[;red;]Aurora High School (2017 - 2021)] - I graduated summa cum laude and with honors.");
+                    this.echo("[[;red;]Kent State University (2021 - 2023)] - I am a Senior graduating in December 2023 with a B.S. in Computer Science. (3.885 GPA)");
+                    this.echo("[[;red;]Aurora High School (2017 - 2021)] - I graduated Summa Cum Laude and with honors. (4.389 GPA)");
                 },
 
                 work: function()
                 {
-                    this.echo("[[;red;]KeyBank (Fall 2021 - Present)] - I am currently an intern at Keybank working with the email management and mobile development team.");
+                    this.echo("[[;red;]KeyBank (Fall 2021 - Present)] - Played a pivotal role in replacing significant legacy Domino applications with automated\nPowerShell scripts, ensuring continuous monitoring and alert systems for email serverfunctionality.\nDeveloped C#/.NET software for server status monitoring and an encrypted password manager tool.\nResolved email team tickets and provided support\nCreated custom code using Power apps");
                     this.echo("[[;red;]Aurora High School (Summer 2021)] - I worked full time with the school tech team to help prepare the distribution of chromebooks for the upcoming school year.");
                 },
 
@@ -58,7 +59,7 @@
 
                 social: function()
                 {
-                    this.echo("[[;green;]Instagram: ]@matthewmoore7314\n[[;green;]LinkedIn: ]https://www.linkedin.com/in/matthewmoore7314/");
+                    this.echo("[[;green;]GitHub: ]https://github.com/novano1d\n[[;green;]LinkedIn: ]https://www.linkedin.com/in/matthewmoore7314/");
                 },
 
                 time: function()
@@ -67,11 +68,6 @@
                     var hours;
                     this.echo((d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear());
                 },
-
-                motd: function()
-                {
-                    this.echo("I hope you're having an absolutely wonderful day! :)");
-                }
 
             }, {
                 //Login and greeting
